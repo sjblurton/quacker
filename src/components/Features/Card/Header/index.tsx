@@ -1,11 +1,12 @@
-import { Quack } from "@/interface/quack";
-import { User } from "@/interface/user";
-import CardHeader from "@mui/material/CardHeader";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import AvatarImage from "../../AvatarImage";
+import { Quack } from '@/interface/quack';
+import CardHeader from '@mui/material/CardHeader';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { DefaultSession } from 'next-auth';
+
+import AvatarImage from '../../AvatarImage';
 
 type Props = {
-  user: User;
+  user: DefaultSession["user"];
   quack?: Quack;
 };
 
@@ -14,7 +15,7 @@ const Header = ({ quack, user }: Props) => {
     return (
       <CardHeader
         avatar={<AvatarImage user={user} />}
-        title={user.name}
+        title={user?.name}
         subheader={formatDistanceToNow(quack.createdAt, { addSuffix: true })}
       />
     );

@@ -1,12 +1,13 @@
-import { Quack } from "@/interface/quack";
-import { User } from "@/interface/user";
-import { Box, Container } from "@mui/material";
-import { CommentCard, QuackCard } from "../Card";
-import ReplayModel from "../Modals/ReplayModel";
+import { Quack } from '@/interface/quack';
+import { Box, Container } from '@mui/material';
+import { DefaultSession } from 'next-auth';
+
+import { CommentCard, QuackCard } from '../Card';
+import ReplayModel from '../Modals/ReplayModel';
 
 type Props = {
   quacks: Quack[];
-  user?: User;
+  user: DefaultSession["user"];
 };
 
 const Feed = ({ user, quacks }: Props) => {

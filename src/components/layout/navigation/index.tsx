@@ -1,11 +1,15 @@
-import Logo from "@/assets/duck";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "next/link";
+import Logo from '@/assets/duck';
+import LoginButton from '@/components/Features/LoginButton';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Toolbar from '@mui/material/Toolbar';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 const Navbar = () => {
+  const { data: session } = useSession();
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -20,9 +24,7 @@ const Navbar = () => {
               Quacker
             </Button>
           </Link>
-          <Button sx={{ p: 2, borderRadius: 8 }} color="inherit">
-            Login
-          </Button>
+          <LoginButton />
         </Toolbar>
       </AppBar>
     </Box>

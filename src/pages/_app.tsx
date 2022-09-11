@@ -1,18 +1,23 @@
-import CssBaseline from "@mui/material/CssBaseline";
-import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
-import { store } from "../context/Store";
-import "../styles/fonts";
-import MuiThemeProvider from "../styles/theme";
+import '../styles/fonts';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import CssBaseline from '@mui/material/CssBaseline';
+import { SessionProvider } from 'next-auth/react';
+import { Provider } from 'react-redux';
+
+import { store } from '../context/Store';
+import MuiThemeProvider from '../styles/theme';
+
+import type { AppProps } from "next/app";
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <Provider store={store}>
-      <MuiThemeProvider>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </MuiThemeProvider>
-    </Provider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <MuiThemeProvider>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </MuiThemeProvider>
+      </Provider>
+    </SessionProvider>
   );
 }
 

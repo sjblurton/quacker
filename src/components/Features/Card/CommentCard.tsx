@@ -1,11 +1,12 @@
-import { User } from "@/interface/user";
-import CardContent from "@mui/material/CardContent";
-import CommentInput from "../CommentInput";
-import Container from "./Container";
-import Header from "./Header";
+import CardContent from '@mui/material/CardContent';
+import { DefaultSession } from 'next-auth';
+
+import CommentInput from '../CommentInput';
+import Container from './Container';
+import Header from './Header';
 
 type Props = {
-  user: User;
+  user: DefaultSession["user"];
 };
 
 const CommentCard = ({ user }: Props) => {
