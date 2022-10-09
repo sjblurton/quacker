@@ -33,5 +33,50 @@
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.1",
     "typescript": "4.7.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "next",
+      "next/core-web-vitals",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended",
+      "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "jsx-a11y",
+      "react"
+    ],
+    "root": true,
+    "rules": {
+      "react/boolean-prop-naming": [
+        "error",
+        {
+          "rule": "^(is|has|can)[A-Z]([A-Za-z0-9]?)+"
+        }
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "debug",
+            "error"
+          ]
+        }
+      ],
+      "no-else-return": "error",
+      "react/react-in-jsx-scope": "off"
+    }
   }
 }
